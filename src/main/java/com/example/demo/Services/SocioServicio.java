@@ -11,10 +11,9 @@ import java.util.Optional;
 @Service
 public class SocioServicio {
     @Autowired
-
     SocioRepository socioReposity;
 
-    public List<Socio> getSocios() {
+    public List<Socio> getSocio() {
         return socioReposity.findAll();
     }
 
