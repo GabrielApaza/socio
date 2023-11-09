@@ -1,4 +1,4 @@
-/*package com.example.demo.Entity;
+package com.example.demo.Entity;
 
 import com.example.demo.Enum.Activo;
 import com.example.demo.Enum.Sector;
@@ -10,49 +10,49 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
-
+        //RF1
         @Data
         @Entity
         @Table(name="socios")
         @AllArgsConstructor
-        @NoArgsConstructor
         public class Socio implements Serializable {
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         private long idSocio;
 
-        @Column(name="nombreSocio", nullable=false, length = 12)
+        @Column(name="nombreSocio")
         private String nombreSocio;
 
-        @Column(name="cuit", nullable=false, length = 50)
+        @Column(name="cuit")
         private String cuit;
 
-        @Column(name="telefono", nullable=false, length = 13)
+        @Column(name="telefono")
         private String telefono;
 
 
-        @Column(name="email", nullable=true, length = 30, unique=true)
+        @Column(name="email",unique=true)
         private String email;
 
-        @Column(name="pagina_web", nullable=true, length = 13)
+        @Column(name="paginaWeb")
         private String paginaWeb;
 
-        @Column(name="perfil_socio", nullable=true, length = 20)
+        @Column(name="perfilSocio")
         private String perfilSocio;
 
-        @Column(name="fecha_alta")
+        @Column(name="fechaAlta")
         @Temporal(TemporalType.DATE)
         private Date fechaAlta;
 
-        @Column(name="fecha_modificacion")
+        @Column(name="fechaModificacion")
         @Temporal(TemporalType.DATE)
         private Date fechaModificacion;
-        @Column(name="fecha_baja")
+        @Column(name="fechaBaja")
         @Temporal(TemporalType.DATE)
         private Date fechaBaja;
 
-        @Enumerated(value=EnumType.STRING)
-        private TipoSocio tipoSocio;
+        @Column(name = "tipoSocio", columnDefinition = "enum ('CAMARA', 'EMPRESA')")
+        //@Enumerated(value=EnumType.STRING)
+        private String tipoSocio;
 
         @Enumerated(value=EnumType.STRING)
         private Activo activo;
@@ -64,8 +64,10 @@ import java.util.Date;
         @JoinColumn(name="domicilio")
         Domicilio domicilio;
 
+        public Socio () {}
+
          public Socio(Long idSocio, String nombreSocio, String cuit, String telefono, String email, String paginaWeb,
-                   String perfilSocio, Date fechaAlta, Date fechaModificacion, Date fechaBaja, TipoSocio tipoSocio,
+                   String perfilSocio, Date fechaAlta, Date fechaModificacion, Date fechaBaja, String tipoSocio,
                    Activo activo, Sector sector, Domicilio domicilio) {
           this.idSocio = idSocio;
           this.nombreSocio = nombreSocio;
@@ -163,11 +165,10 @@ import java.util.Date;
           this.fechaBaja = fechaBaja;
       }
 
-      public TipoSocio getTipoSocio() {
-          return tipoSocio;
+      public String getTipoSocio() { return tipoSocio;
       }
 
-      public void setTipoSocio(TipoSocio tipoSocio) {
+      public void setTipoSocio(String tipoSocio) {
           this.tipoSocio = tipoSocio;
       }
 
@@ -214,4 +215,4 @@ import java.util.Date;
                   ", domicilio=" + domicilio +
                   '}';
       }
-  }**/
+  }

@@ -1,4 +1,4 @@
-/*package com.example.demo.Entity;
+package com.example.demo.Entity;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,4 +16,4 @@ public class Domicilio {
 
     @Column(name="piso", nullable=false, length = 50)
     private String piso;
-}**/
+}

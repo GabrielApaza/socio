@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 @Service
 public class DepartamentoServicio  {
@@ -22,6 +23,11 @@ public class DepartamentoServicio  {
         return departamentoRepository.findById(idDepartamento);
     }
     public void saveOrUpdate(Departamento departamento) {
+
         departamentoRepository.save(departamento);
+    }
+
+    public void delete(long idDepartamento) {
+        departamentoRepository.deleteById(idDepartamento);
     }
 }

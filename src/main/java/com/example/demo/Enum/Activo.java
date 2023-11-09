@@ -1,6 +1,6 @@
-/*package com.example.demo.Enum;
+package com.example.demo.Enum;
 
 public enum Activo {
     SI,
     NO;
-}**/
+}

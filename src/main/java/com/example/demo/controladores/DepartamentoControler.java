@@ -20,6 +20,7 @@ public class DepartamentoControler {
     public List<Departamento> getAll() {
         return departamentoServicio.getDepartamento();
     }
+
     @GetMapping("/{idDepartamento}")
     public Optional<Departamento> getByid(@PathVariable("idDepartamento") long idDepartamento) {
         return departamentoServicio.getDepartamento(idDepartamento);
@@ -27,6 +28,13 @@ public class DepartamentoControler {
 
     @PostMapping
     public void saveUpdate(@RequestBody Departamento departamento) {
+
         departamentoServicio.saveOrUpdate(departamento);
+    }
+
+    @DeleteMapping("/{idDepartamento}")
+    public void deleteById(@PathVariable long idDepartamento) {
+        departamentoServicio.delete(idDepartamento);
+
     }
 }
