@@ -64,6 +64,10 @@ import java.util.Date;
         @JoinColumn(name="domicilio")
         Domicilio domicilio;
 
+        /*@OneToMany
+        @JoinColumn(name="registrospagos")
+        RegistroPago registrospagos;**/
+
         public Socio () {}
 
          public Socio(Long idSocio, String nombreSocio, String cuit, String telefono, String email, String paginaWeb,

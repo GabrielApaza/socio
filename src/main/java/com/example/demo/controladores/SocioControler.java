@@ -1,12 +1,12 @@
 package com.example.demo.controladores;
 
 import com.example.demo.Entity.Socio;
-import com.example.demo.Enum.TipoSocio;
 import com.example.demo.Services.SocioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -21,6 +21,7 @@ public class SocioControler {
 
     @GetMapping("/")
     public List<Socio> getAll() {
+
         return socioServicio.getSocio();
     }
 
@@ -42,10 +43,10 @@ public class SocioControler {
      }
 
     @GetMapping("/fechaAlta")
-    public List<Socio> getByidfechaAlta(@RequestParam String fechaAlta) {
-       /* String fechaAlta = "yyyy-MM-dd";
-        LocalDate date = LocalDate.parse(fechaAlta, DateTimeFormatter.BASIC_ISO_DATE);
-        return socioServicio.getfechaAlta(fechaAlta);**/
+    public List<Socio> getByidfechaAlta(@RequestParam String fechaAlta) throws ParseException {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date dataFormateada = formato.parse(fechaAlta);
+        return socioServicio.getfechaAlta(dataFormateada);
     }
 
     @GetMapping("/tipoSocio")

@@ -1,7 +1,6 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Entity.Socio;
-import com.example.demo.Enum.TipoSocio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
