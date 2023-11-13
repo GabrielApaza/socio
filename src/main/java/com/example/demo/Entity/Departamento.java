@@ -12,11 +12,10 @@ public class Departamento {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long idDepartamento;
 
-    @Column(name="nombreDepartamento", nullable=false, length = 12)
-    private String nombreDepartamento;
-
-    @Column(name="jerarquia", nullable=false, length = 12)
+    @Column(name="jerarquia")
     private String jerarquia;
+    @Column(name="nombre_departamento")
+    private String nombre_departamento;
 
     @ManyToMany(fetch=FetchType.LAZY,cascade= CascadeType.MERGE)
    @JoinTable(
@@ -33,15 +32,18 @@ public class Departamento {
     public Departamento() {
     }
 
-    public Departamento(long idDepartamento, String nombreDepartamento, String jerarquia, List<Usuario> usuarios,
+    /*public Departamento(long idDepartamento,String jerarquia, String nombre_departamento, List<Usuario> usuarios,
                         List<PosibleCargo> posiblescargos) {
         this.idDepartamento = idDepartamento;
-        this.nombreDepartamento = nombreDepartamento;
         this.jerarquia = jerarquia;
+        this.nombre_departamento = nombre_departamento;
         this.usuarios = usuarios;
         this.posiblescargos = posiblescargos;
+    }**/
+    public Departamento(String jerarquia, String nombre_departamento) {
+        this.nombre_departamento = nombre_departamento;
+        this.jerarquia = jerarquia;
     }
-
     public long getIdDepartamento() {
         return idDepartamento;
     }
@@ -50,15 +52,7 @@ public class Departamento {
         this.idDepartamento = idDepartamento;
     }
 
-    public String getNombreDepartamento() {
-        return nombreDepartamento;
-    }
-
-    public void setNombreDepartamento(String nombreDepartamento) {
-        this.nombreDepartamento = nombreDepartamento;
-    }
-
-    public String getJerarquia() {
+     public String getJerarquia() {
         return jerarquia;
     }
 
@@ -66,6 +60,15 @@ public class Departamento {
         this.jerarquia = jerarquia;
     }
 
+    public String getnombre_departamento() {
+        return nombre_departamento;
+    }
+
+    public void setnombre_departamento(String nombre_departamento) {
+        this.nombre_departamento = nombre_departamento;
+    }
+
+/*
     public List<Usuario> getUsuarios() {
         return usuarios;
     }
@@ -80,6 +83,6 @@ public class Departamento {
 
     public void setPosiblescargos(List<PosibleCargo> posiblescargos) {
         this.posiblescargos = posiblescargos;
-    }
+    }**/
 }
 

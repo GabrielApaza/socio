@@ -11,7 +11,6 @@ import java.util.List;
 public interface SocioRepository extends JpaRepository<Socio,Long> {
 
     List<Socio> findBynombreSocioContaining(String nombreSocio);
-     //List<Socio> findByfechaAltaEquals(Date date);
     List<Socio> findByfechaAltaBetween(Date fechaAlta, Date fechaActual);
     List<Socio> findBytipoSocioContaining(String tipoSocio);
 
