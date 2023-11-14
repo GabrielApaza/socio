@@ -22,7 +22,7 @@ public class DepartamentoControler {
     }
 
     @GetMapping("/{idDepartamento}")
-    public Optional<Departamento> getByid(@PathVariable("idDepartamento") long idDepartamento) {
+    public Optional<Departamento> getByid(@PathVariable("idDepartamento") Long idDepartamento) {
         return departamentoServicio.getDepartamento(idDepartamento);
     }
 
@@ -32,9 +32,10 @@ public class DepartamentoControler {
         departamentoServicio.saveOrUpdate(departamento);
     }
 
-    @DeleteMapping("/{idDepartamento}")
-    public void deleteById(@PathVariable long idDepartamento) {
-        departamentoServicio.delete(idDepartamento);
+    @DeleteMapping("/delete/idDepartamento")
+    public void deleteById(@PathVariable Long idDepartamento) {
+        departamentoServicio.delete(idDepartamento)
+        ;
 
     }
 }

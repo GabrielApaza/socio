@@ -19,7 +19,7 @@ public class DepartamentoServicio  {
 
         return departamentoRepository.findAll();
     }
-    public Optional<Departamento> getDepartamento(long idDepartamento) {
+    public Optional<Departamento> getDepartamento(Long idDepartamento) {
         return departamentoRepository.findById(idDepartamento);
     }
     public void saveOrUpdate(Departamento departamento) {
@@ -27,7 +27,7 @@ public class DepartamentoServicio  {
         departamentoRepository.save(departamento);
     }
 
-    public void delete(long idDepartamento) {
+    public void delete(Long idDepartamento) {
         departamentoRepository.deleteById(idDepartamento);
     }
 }

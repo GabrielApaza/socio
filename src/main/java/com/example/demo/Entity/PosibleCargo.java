@@ -10,7 +10,24 @@ import java.util.List;
 public class PosibleCargo {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long idPosibleCargo;
-    private String nombrePosibleCargo;
+    private Long idPosibleCargo;
 
+    @Column(name="nombre_posible_cargo")
+    private String nombre_posible_cargo;
+
+    public Long getIdPosibleCargo() {
+        return idPosibleCargo;
+    }
+
+    public void setIdPosibleCargo(Long idPosibleCargo) {
+        this.idPosibleCargo = idPosibleCargo;
+    }
+
+    public String getNombre_posible_cargo() {
+        return nombre_posible_cargo;
+    }
+
+    public void setNombre_posible_cargo(String nombre_posible_cargo) {
+        this.nombre_posible_cargo = nombre_posible_cargo;
+    }
 }

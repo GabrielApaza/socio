@@ -10,7 +10,7 @@ import java.util.List;
 public class Departamento {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long idDepartamento;
+    private Long idDepartamento;
 
     @Column(name="jerarquia")
     private String jerarquia;
@@ -32,14 +32,14 @@ public class Departamento {
     public Departamento() {
     }
 
-    /*public Departamento(long idDepartamento,String jerarquia, String nombre_departamento, List<Usuario> usuarios,
+    public Departamento(Long idDepartamento,String jerarquia, String nombre_departamento, List<Usuario> usuarios,
                         List<PosibleCargo> posiblescargos) {
         this.idDepartamento = idDepartamento;
         this.jerarquia = jerarquia;
         this.nombre_departamento = nombre_departamento;
         this.usuarios = usuarios;
         this.posiblescargos = posiblescargos;
-    }**/
+    }
     public Departamento(String jerarquia, String nombre_departamento) {
         this.nombre_departamento = nombre_departamento;
         this.jerarquia = jerarquia;
@@ -68,7 +68,7 @@ public class Departamento {
         this.nombre_departamento = nombre_departamento;
     }
 
-/*
+
     public List<Usuario> getUsuarios() {
         return usuarios;
     }
@@ -83,6 +83,6 @@ public class Departamento {
 
     public void setPosiblescargos(List<PosibleCargo> posiblescargos) {
         this.posiblescargos = posiblescargos;
-    }**/
+    }
 }
 
