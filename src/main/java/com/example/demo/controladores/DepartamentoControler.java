@@ -32,10 +32,9 @@ public class DepartamentoControler {
         departamentoServicio.saveOrUpdate(departamento);
     }
 
-    @DeleteMapping("/delete/idDepartamento")
+    @DeleteMapping("/delete/{idDepartamento}")
     public void deleteById(@PathVariable Long idDepartamento) {
-        departamentoServicio.delete(idDepartamento)
-        ;
+        departamentoServicio.delete(idDepartamento);
 
     }
 }

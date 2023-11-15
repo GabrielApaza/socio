@@ -8,12 +8,44 @@ public class Domicilio {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long idDomicilio;
 
-    @Column(name="calle", nullable=false, length = 12)
+    @Column(name="calle")
     private String calle;
 
-    @Column(name="altura", nullable=false, length = 50)
+    @Column(name="altura")
     private String altura;
 
-    @Column(name="piso", nullable=false, length = 50)
+    @Column(name="piso")
     private String piso;
+
+    public long getIdDomicilio() {
+        return idDomicilio;
+    }
+
+    public void setIdDomicilio(long idDomicilio) {
+        this.idDomicilio = idDomicilio;
+    }
+
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getAltura() {
+        return altura;
+    }
+
+    public void setAltura(String altura) {
+        this.altura = altura;
+    }
+
+    public String getPiso() {
+        return piso;
+    }
+
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
 }
