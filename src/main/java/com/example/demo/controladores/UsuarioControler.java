@@ -23,7 +23,7 @@ public class UsuarioControler {
     @GetMapping("/{idUsuario}")
     public Optional<Usuario> getByid(@PathVariable("idUsuario") long idUsuario) {
 
-        return usuarioServicio.getSocio(idUsuario);    }
+        return usuarioServicio.getUsuario(idUsuario);    }
 
     @PostMapping
     public void saveUpdate(@RequestBody Usuario usuario) {

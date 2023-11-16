@@ -23,7 +23,7 @@ public class UsuarioServicio {
         usuarioRepository.save(usuario);
     }
 
-    public Optional<Usuario> getSocio(long idUsuario) {
+    public Optional<Usuario> getUsuario(long idUsuario) {
 
         return usuarioRepository.findById(idUsuario);
     }
