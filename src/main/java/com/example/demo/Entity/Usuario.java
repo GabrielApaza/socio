@@ -16,7 +16,7 @@ public class Usuario implements Serializable {
     private Long idUsuario;
 
     @Column(name="nombre_usuario")
-    private String nombre_usuario;
+    private String nombreUsuario;
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -26,11 +26,11 @@ public class Usuario implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 }
