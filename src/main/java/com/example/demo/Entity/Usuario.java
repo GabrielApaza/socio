@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name="usuarios")
 public class Usuario implements Serializable {
@@ -17,6 +16,21 @@ public class Usuario implements Serializable {
     private Long idUsuario;
 
     @Column(name="nombre_usuario")
-    private String nombre_usuario;
+    private String nombreUsuario;
 
+    public Long getIdUsuario() {
+        return idUsuario;
     }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+}

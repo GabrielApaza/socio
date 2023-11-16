@@ -2,7 +2,10 @@ package com.example.demo.controladores;
 
 
 import com.example.demo.Entity.Departamento;
+import com.example.demo.Entity.Usuario;
 import com.example.demo.Services.DepartamentoServicio;
+import com.example.demo.Services.UsuarioServicio;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,9 @@ import java.util.Optional;
 public class DepartamentoControler {
     @Autowired
     private DepartamentoServicio departamentoServicio;
+
+    @Autowired
+    private UsuarioServicio usuarioServicio;
 
     @GetMapping("/lista")
     public List<Departamento> getAll() {
@@ -34,7 +40,17 @@ public class DepartamentoControler {
 
     @DeleteMapping("/delete/{idDepartamento}")
     public void deleteById(@PathVariable Long idDepartamento) {
-        departamentoServicio.delete(idDepartamento);
+        departamentoServicio.delete(idDepartamento)
+        ;
 
     }
+
+    @Transactional
+    @PostMapping("/{idDepartamento}/usuarios")
+    public void asignarUsuario(@PathVariable("idDepartamento") Long idDepartamento, @RequestBody long idUsuario) {
+        Departamento departamento = departamentoServicio.getDepartamento(idDepartamento).get();
+        Usuario usuario = usuarioServicio.getSocio(idUsuario).get();
+        departamento.getUsuarios().add(usuario);
+    }
+
 }
