@@ -36,8 +36,8 @@ import java.util.Date;
         @Column(name="paginaWeb")
         private String paginaWeb;
 
-        @Column(name="perfilSocio")
-        private String perfilSocio;
+        @Column(name="localidad")
+        private String localidad;
 
         @Column(name="fechaAlta")
         @Temporal(TemporalType.DATE)
@@ -71,7 +71,7 @@ import java.util.Date;
         public Socio () {}
 
          public Socio(Long idSocio, String nombreSocio, String cuit, String telefono, String email, String paginaWeb,
-                   String perfilSocio, Date fechaAlta, Date fechaModificacion, Date fechaBaja, String tipoSocio,
+                   String localidad, Date fechaAlta, Date fechaModificacion, Date fechaBaja, String tipoSocio,
                    Activo activo, Sector sector, Domicilio domicilio) {
           this.idSocio = idSocio;
           this.nombreSocio = nombreSocio;
@@ -79,7 +79,7 @@ import java.util.Date;
           this.telefono = telefono;
           this.email = email;
           this.paginaWeb = paginaWeb;
-          this.perfilSocio = perfilSocio;
+          this.localidad = localidad;
           this.fechaAlta = fechaAlta;
           this.fechaModificacion = fechaModificacion;
           this.fechaBaja = fechaBaja;
@@ -138,11 +138,11 @@ import java.util.Date;
       }
 
       public String getPerfilSocio() {
-          return perfilSocio;
+          return localidad;
       }
 
       public void setPerfilSocio(String perfilSocio) {
-          this.perfilSocio = perfilSocio;
+          this.localidad = perfilSocio;
       }
 
       public Date getFechaAlta() {
@@ -209,7 +209,7 @@ import java.util.Date;
                   ", telefono='" + telefono + '\'' +
                   ", email='" + email + '\'' +
                   ", paginaWeb='" + paginaWeb + '\'' +
-                  ", perfilSocio='" + perfilSocio + '\'' +
+                  ", perfilSocio='" + localidad + '\'' +
                   ", fechaAlta=" + fechaAlta +
                   ", fechaModificacion=" + fechaModificacion +
                   ", fechaBaja=" + fechaBaja +
