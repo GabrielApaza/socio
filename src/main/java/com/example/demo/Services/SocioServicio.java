@@ -1,6 +1,5 @@
 package com.example.demo.Services;
 import com.example.demo.Entity.Socio;
-import com.example.demo.Enum.TipoSocio;
 import com.example.demo.Repository.SocioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,11 +22,12 @@ public class SocioServicio {
 
         return socioReposity.findById(idSocio);
     }
-    public void saveOrUpdate(Socio socio) {
+    public Socio saveOrUpdate(Socio socio) {
 
         socioReposity.save(socio);
+        return socio;
     }
-    public List<Socio> getnombreSocio(String nombreSocio) {
+      public List<Socio> getnombreSocio(String nombreSocio) {
 
         return socioReposity.findBynombreSocioContaining(nombreSocio);
     }
@@ -40,4 +40,8 @@ public class SocioServicio {
     public List<Socio> gettipoSocio(String tipoSocio) {
 
         return socioReposity.findBytipoSocioContaining(tipoSocio);
-}}
+}
+
+
+
+}

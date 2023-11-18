@@ -29,12 +29,17 @@ public class SocioControler {
         return socioServicio.getSocio(idSocio);
     }
 
-    @PostMapping
+    @PostMapping("/act/{idSocio}")
     public void saveUpdate(@RequestBody Socio socio) {
 
         socioServicio.saveOrUpdate(socio);
     }
-    @GetMapping("/nombreSocio")
+    @PutMapping("{idSocio}")
+    public Optional<Socio> updateSocio(@PathVariable long idSocio, @RequestBody Socio socio) {
+        Socio updateSocio = socioServicio.saveOrUpdate(socio);
+        return socioServicio.getSocio(idSocio);
+    }
+     @GetMapping("/nombreSocio")
     public List<Socio> getByid(@RequestParam String nombreSocio) {
 
         return socioServicio.getnombreSocio(nombreSocio);

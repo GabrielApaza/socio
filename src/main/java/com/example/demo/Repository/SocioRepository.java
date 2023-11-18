@@ -14,4 +14,5 @@ public interface SocioRepository extends JpaRepository<Socio,Long> {
     List<Socio> findByfechaAltaBetween(Date fechaAlta, Date fechaActual);
     List<Socio> findBytipoSocioContaining(String tipoSocio);
 
-}
+
+     }
