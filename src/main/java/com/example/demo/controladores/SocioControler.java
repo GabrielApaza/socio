@@ -2,10 +2,8 @@ package com.example.demo.controladores;
 
 import com.example.demo.Entity.Socio;
 import com.example.demo.Exception.ResourceNotFoundException;
-import com.example.demo.Repository.SocioRepository;
 import com.example.demo.Services.SocioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,6 +51,7 @@ public class SocioControler {
          updateSocio.setTipoSocio(socioDetalles.getTipoSocio());
          updateSocio.setActivo(socioDetalles.getActivo());
          updateSocio.setSector(socioDetalles.getSector());
+        updateSocio.setDomicilio(socioDetalles.getDomicilio());
          socioServicio.save(updateSocio);
          return ResponseEntity.ok(updateSocio);
           }
