@@ -42,6 +42,11 @@ public class SocioServicio {
         return socioReposity.findBytipoSocioContaining(tipoSocio);
 }
 
+    public Optional<Socio> findById(long idSocio) {
+        return socioReposity.findById(idSocio);
+    }
 
+    public void save(Socio updateSocio) {
 
+    }
 }

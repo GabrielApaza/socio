@@ -1,8 +1,12 @@
 package com.example.demo.controladores;
 
 import com.example.demo.Entity.Socio;
+import com.example.demo.Exception.ResourceNotFoundException;
+import com.example.demo.Repository.SocioRepository;
 import com.example.demo.Services.SocioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -16,7 +20,6 @@ import java.util.Optional;
 public class SocioControler {
     @Autowired
     public SocioServicio socioServicio;
-
     @GetMapping("/")
     public List<Socio> getAll() {
 
@@ -29,16 +32,30 @@ public class SocioControler {
         return socioServicio.getSocio(idSocio);
     }
 
-    @PostMapping("/act/{idSocio}")
+    @PostMapping("/save/{idSocio}")
     public void saveUpdate(@RequestBody Socio socio) {
 
         socioServicio.saveOrUpdate(socio);
     }
-    @PutMapping("{idSocio}")
-    public Optional<Socio> updateSocio(@PathVariable long idSocio, @RequestBody Socio socio) {
-        Socio updateSocio = socioServicio.saveOrUpdate(socio);
-        return socioServicio.getSocio(idSocio);
-    }
+    @PutMapping("/act/{idSocio}")
+     public ResponseEntity<Socio> updateSocio(@PathVariable long idSocio, @RequestBody Socio socioDetalles) {
+         Socio updateSocio = socioServicio.findById(idSocio).
+                 orElseThrow(() -> new ResourceNotFoundException("No existe Socio con id: " + idSocio));
+         updateSocio.setNombreSocio(socioDetalles.getNombreSocio());
+         updateSocio.setCuit(socioDetalles.getCuit());
+         updateSocio.setTelefono(socioDetalles.getTelefono());
+         updateSocio.setEmail(socioDetalles.getEmail());
+         updateSocio.setPaginaWeb(socioDetalles.getPaginaWeb());
+         updateSocio.setLocalidad(socioDetalles.getLocalidad());
+         updateSocio.setFechaAlta(socioDetalles.getFechaAlta());
+         updateSocio.setFechaModificacion(socioDetalles.getFechaModificacion());
+         updateSocio.setFechaBaja(socioDetalles.getFechaBaja());
+         updateSocio.setTipoSocio(socioDetalles.getTipoSocio());
+         updateSocio.setActivo(socioDetalles.getActivo());
+         updateSocio.setSector(socioDetalles.getSector());
+         socioServicio.save(updateSocio);
+         return ResponseEntity.ok(updateSocio);
+          }
      @GetMapping("/nombreSocio")
     public List<Socio> getByid(@RequestParam String nombreSocio) {
 
