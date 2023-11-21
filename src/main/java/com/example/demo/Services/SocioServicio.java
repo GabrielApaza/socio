@@ -46,6 +46,5 @@ public class SocioServicio {
         return socioReposity.findById(idSocio);
     }
 
-    public void save(Socio updateSocio) {
-            }
+
 }

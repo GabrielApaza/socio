@@ -3,6 +3,7 @@ package com.example.demo.controladores;
 import com.example.demo.Entity.Socio;
 import com.example.demo.Exception.ResourceNotFoundException;
 import com.example.demo.Services.SocioServicio;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,7 @@ public class SocioControler {
 
         socioServicio.saveOrUpdate(socio);
     }
+    @Transactional
     @PutMapping("/act/{idSocio}")
      public ResponseEntity<Socio> updateSocio(@PathVariable long idSocio, @RequestBody Socio socioDetalles) {
          Socio updateSocio = socioServicio.findById(idSocio).
@@ -52,7 +54,7 @@ public class SocioControler {
          updateSocio.setActivo(socioDetalles.getActivo());
          updateSocio.setSector(socioDetalles.getSector());
         updateSocio.setDomicilio(socioDetalles.getDomicilio());
-         socioServicio.save(updateSocio);
+         socioServicio.saveOrUpdate(updateSocio);
          return ResponseEntity.ok(updateSocio);
           }
      @GetMapping("/nombreSocio")
