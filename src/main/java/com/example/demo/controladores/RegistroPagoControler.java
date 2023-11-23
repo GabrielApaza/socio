@@ -20,4 +20,4 @@ public RegistroPagoServicio registroPagoServicio;
     public List<RegistroPago> getAll() {
         return registroPagoServicio.getRegistroPago();
     }
-}**/
+}*/

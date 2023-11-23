@@ -62,4 +62,4 @@ public class RegistroPago implements Serializable {
                 ", montoCuotaSocio='" + montoCuotaSocio + '\'' +
                 '}';
     }
-}**/
+}*/

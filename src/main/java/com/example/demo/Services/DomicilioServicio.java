@@ -28,5 +28,11 @@ public class DomicilioServicio {
 
         domicilioRepository.save(domicilio);
     }
+    public Optional<Domicilio> findById(long idDomicilio) {
+        return domicilioRepository.findById(idDomicilio);
+    }
 
+    public void delete(Long idDomicilio) {
+        domicilioRepository.deleteById(idDomicilio);
+    }
 }
