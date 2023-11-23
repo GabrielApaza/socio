@@ -73,5 +73,13 @@ public class SocioControler {
     @GetMapping("/tipoSocio")
     public List<Socio> getByidytipoSocio(@RequestParam String tipoSocio) {
 
-        return socioServicio.gettipoSocio(tipoSocio);}
+        return socioServicio.gettipoSocio(tipoSocio);
+    }
+
+
+    @DeleteMapping("/delete/{idSocio}")
+    public void deleteById(@PathVariable Long idSocio) {
+        socioServicio.delete(idSocio);
+
+    }
 }

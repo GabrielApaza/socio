@@ -46,5 +46,8 @@ public class SocioServicio {
         return socioReposity.findById(idSocio);
     }
 
+    public void delete(Long idSocio){
+        socioReposity.deleteById(idSocio);
+    }
 
 }
