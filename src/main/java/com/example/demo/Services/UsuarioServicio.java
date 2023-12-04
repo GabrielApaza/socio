@@ -1,4 +1,4 @@
-package com.example.demo.Services;
+/*package com.example.demo.Services;
 
 import com.example.demo.Entity.Socio;
 import com.example.demo.Entity.Usuario;
@@ -28,3 +28,4 @@ public class UsuarioServicio {
         return usuarioRepository.findById(idUsuario);
     }
 }
+*/

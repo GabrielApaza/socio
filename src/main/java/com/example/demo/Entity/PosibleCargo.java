@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+/*package com.example.demo.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -30,4 +30,4 @@ public class PosibleCargo {
     public void setNombre_posible_cargo(String nombre_posible_cargo) {
         this.nombre_posible_cargo = nombre_posible_cargo;
     }
-}
+}*/

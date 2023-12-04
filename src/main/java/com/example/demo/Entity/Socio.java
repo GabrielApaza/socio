@@ -2,12 +2,9 @@ package com.example.demo.Entity;
 
 import com.example.demo.Enum.Activo;
 import com.example.demo.Enum.Sector;
-import com.example.demo.Enum.TipoSocio;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 import java.util.Date;
 //RF1
@@ -19,6 +16,9 @@ public class Socio implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long idSocio;
+
+    @Column(name="logo")
+    private String logo;
 
     @Column(name="nombreSocio")
     private String nombreSocio;
@@ -200,20 +200,29 @@ public class Socio implements Serializable {
         this.domicilio = domicilio;
     }
 
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
     @Override
     public String toString() {
         return "Socio{" +
                 "idSocio=" + idSocio +
+                ", logo='" + logo + '\'' +
                 ", nombreSocio='" + nombreSocio + '\'' +
                 ", cuit='" + cuit + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
                 ", paginaWeb='" + paginaWeb + '\'' +
-                ", perfilSocio='" + localidad + '\'' +
+                ", localidad='" + localidad + '\'' +
                 ", fechaAlta=" + fechaAlta +
                 ", fechaModificacion=" + fechaModificacion +
                 ", fechaBaja=" + fechaBaja +
-                ", tipoSocio=" + tipoSocio +
+                ", tipoSocio='" + tipoSocio + '\'' +
                 ", activo=" + activo +
                 ", sector=" + sector +
                 ", domicilio=" + domicilio +

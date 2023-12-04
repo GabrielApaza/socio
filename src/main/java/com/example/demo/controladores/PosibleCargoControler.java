@@ -1,4 +1,4 @@
-package com.example.demo.controladores;
+/*package com.example.demo.controladores;
 
 import com.example.demo.Entity.PosibleCargo;
 import com.example.demo.Entity.Usuario;
@@ -34,3 +34,4 @@ public class PosibleCargoControler {
     }
 
 }
+*/

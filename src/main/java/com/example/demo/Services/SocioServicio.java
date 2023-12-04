@@ -2,6 +2,7 @@ package com.example.demo.Services;
 import com.example.demo.Entity.Socio;
 import com.example.demo.Repository.SocioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -12,7 +13,7 @@ import java.util.Optional;
 public class SocioServicio {
     @Autowired
     SocioRepository socioReposity;
-    //RF2
+
     public List<Socio> getSocio() {
 
         return socioReposity.findAll();
@@ -49,5 +50,6 @@ public class SocioServicio {
     public void delete(Long idSocio){
         socioReposity.deleteById(idSocio);
     }
+
 
 }

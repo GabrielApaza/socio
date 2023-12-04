@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+/*package com.example.demo.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -85,4 +85,4 @@ public class Departamento {
         this.posiblescargos = posiblescargos;
     }
 }
-
+*/

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <title>Prueba Equipo Back</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+                   -- Prueba Equipo Back--
+<body>
+<img th:src="@{/picture/cultivemosAmor.png}" width="60" height="60">
+<img th:src="@{picture/e84de648-efcf-4140-a14b-2fa2b32e6c28.png}" width="60" height="60">
+<img src="/images/cultivemosAmor.png"
+     th:attr="src=@{/images/cultivemosAmor.png},title=#{Logo},alt=#{Logo}" />
+<img src="/images/cultivemosAmor.png" title="Logo prueba" alt="Logo2" />
+
+</body>
+
+</html>

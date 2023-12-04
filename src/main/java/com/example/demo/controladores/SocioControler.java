@@ -2,10 +2,13 @@ package com.example.demo.controladores;
 
 import com.example.demo.Entity.Socio;
 import com.example.demo.Exception.ResourceNotFoundException;
+import com.example.demo.Services.Impl.SocioServicioImpl;
 import com.example.demo.Services.SocioServicio;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -19,6 +22,7 @@ import java.util.Optional;
 public class SocioControler {
     @Autowired
     public SocioServicio socioServicio;
+    public SocioServicioImpl socioservicioimpl;
     @GetMapping("/")
     public List<Socio> getAll() {
 
@@ -81,5 +85,18 @@ public class SocioControler {
     public void deleteById(@PathVariable Long idSocio) {
         socioServicio.delete(idSocio);
 
+    }
+
+    @GetMapping("/page/{pageNo}")
+    public String encuentrePaginaFinal(@PathVariable (value= "pageNo") int pageNo, Model model){
+        int pageSize = 5;
+        Page<Socio> page = socioservicioimpl.encuentrePaginaFinal(pageNo, pageSize);
+        List<Socio> socioList = page.getContent();
+
+        model.addAttribute("paginaActual", pageNo);
+        model.addAttribute("totalPaginas",page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("listaEmpleados", socioList);
+        return "index";
     }
 }

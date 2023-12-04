@@ -1,4 +1,4 @@
-package com.example.demo.controladores;
+/*package com.example.demo.controladores;
 
 
 import com.example.demo.Entity.Departamento;
@@ -48,8 +48,7 @@ public class DepartamentoControler {
     @Transactional
     @PutMapping("/act/{idDepartamento}")
     public ResponseEntity<Departamento> updateDepartamento(@PathVariable long idDepartamento, @RequestBody Departamento departamentoDetalles) {
-        Departamento updateDepartamento = departamentoServicio.findById(idDepartamento).
-                orElseThrow(() -> new ResourceNotFoundException("No existe Departamento con id: " + idDepartamento));
+        Departamento updateDepartamento = departamentoServicio.findById(idDepartamento).orElseThrow(() -> new ResourceNotFoundException("No existe Departamento con id: " + idDepartamento));
         updateDepartamento.setJerarquia(departamentoDetalles.getJerarquia());
         updateDepartamento.setnombre_departamento(departamentoDetalles.getnombre_departamento());
         departamentoServicio.saveOrUpdate(updateDepartamento);
@@ -62,5 +61,5 @@ public class DepartamentoControler {
         Usuario usuario = usuarioServicio.getUsuario(idUsuario).get();
         departamento.getUsuarios().add(usuario);
     }
-
 }
+*/

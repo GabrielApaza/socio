@@ -1,4 +1,4 @@
-package com.example.demo.Repository;
+/*package com.example.demo.Repository;
 
 import com.example.demo.Entity.Departamento;
 import com.example.demo.Entity.Socio;
@@ -11,4 +11,4 @@ import java.util.List;
 public interface DepartamentoRepository extends JpaRepository<Departamento, Long> {
     List<Departamento> findByJerarquia(String jerarquia);
 
-}
+}*/

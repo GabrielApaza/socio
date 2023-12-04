@@ -1,6 +1,5 @@
-package com.example.demo.controladores;
+/*package com.example.demo.controladores;
 
-import com.example.demo.Entity.Socio;
 import com.example.demo.Entity.Usuario;
 import com.example.demo.Services.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,3 +30,4 @@ public class UsuarioControler {
         usuarioServicio.saveOrUpdate(usuario);
     }
 }
+*/

@@ -1,4 +1,4 @@
-package com.example.demo.Services;
+/*package com.example.demo.Services;
 
 import com.example.demo.Entity.Departamento;
 import com.example.demo.Entity.Socio;
@@ -35,4 +35,4 @@ public class DepartamentoServicio  {
     public Optional<Departamento> findById(long idDepartamento) {
         return departamentoRepository.findById(idDepartamento);
     }
-}
+}*/

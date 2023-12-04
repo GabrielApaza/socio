@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+/*package com.example.demo.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,4 +33,4 @@ public class Usuario implements Serializable {
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
-}
+}*/

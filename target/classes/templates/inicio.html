@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inicio - Copal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{../static/style.css}"/>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row header fixed-top">
+        <div class="col-12 bg-danger">
+            <!-- ///////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- Header -->
+            <nav class="navbar header ">
+                <div class="container-fluid">
+                    <a class="navbar-brand ms-4" href="#"> <!-- Logo Copal -->
+                        <img th:src="@{../static/Copal.png}" alt="logo-de-copal" width="200" height="60" >
+                    </a>
+                    <div class="centrarElemento align-middle d-flex"> <!-- Nombre de usuario y avatar -->
+                        <a class="navbar-brand me-4" href="#">
+                        <span class="fuente-usuario navbar-text me-4">
+                            Usuario
+                        </span>
+                            <img th:src="@{../static/avatar.png}" alt="logo-de-copal" width="60" height="60" >
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Sidebar-->
+    <div class="row main">
+        <div class=" col-2 sidebar pt-5 pe-0 ps-0">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="/socio/inicio" class="nav-link ">
+                        Socios
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link ">
+                        Documentos
+                    </a>
+                </li>
+                <li>
+                    <a href="/departamentos/gestion-departamentos" class="nav-link ">
+                        Departamentos
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link ">
+                        Reuniones
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link ">
+                        Eventos
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link ">
+                        Espacios Colaborativos
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link ">
+                        Informes
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- Main-->
+        <div class="col-10 pt-2 ps-4 pe-4">
+            <div class="container">
+                <div class="row">
+                    <div class="container text-start bread-crumb">
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Home | Gestión de usuarios
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="centrarElemento align-middle d-flex pt-3 mb-3 titulo-main">
+                    <h2>
+                        Gestión de Socios
+                    </h2>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+
+                                <form th:action="@{/socio/filtrar}" method="get" class="d-flex flex-nowrap">
+                                    <div class="input-group">
+                                        <select class="form-select rounded-0" name="filtro">
+                                            <option value="nombreSocio">Nombre de Socio</option>
+                                            <option value="fechaAlta">Fecha de Alta</option>
+                                            <option value="tipoSocio">Tipo de Socio</option>
+                                        </select>
+                                        <input type="text" class="form-control" id="buscar" name="buscar" placeholder="Buscar">
+                                        <button class="btn btn-buscar rounded-0" type="submit">Buscar</button>
+                                    </div>
+                                </form>
+
+
+
+                            </div>
+
+                            <div class="col-4 text-end">
+                                <a th:href="@{/socio/agregar-socio}"  type="button" class="rounded-0 btn-primario p-0"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle me-2" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>Agregar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de socios-->
+                <div class="row ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table text-center border border-1">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Nº</th>
+                                        <th scope="col">Logo</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="socio: ${socios}">
+                                        <td th:text="${socio.idSocio}"></td>
+                                       <td ><img th:src="@{/picture/e84de648-efcf-4140-a14b-2fa2b32e6c28.png}" width="60" height="60"></td>
+
+                                        <td th:text="${socio.nombreSocio}"></td>
+                                        <td >Activo</td>
+                                        <td ><div class="d-flex flex-row justify-content-center">
+                                            <div>
+                                                <a th:href="@{'/socio/' + ${socio.idSocio}}" class="text-decoration-none" >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="18" fill="currentColor" class="bi bi-eye color-icono" viewBox="0 0 16 16">
+                                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a th:href="@{/socio/actualizar-socio/{id}(id=${socio.idSocio})}" class="text-decoration-none" >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen color-icono" viewBox="0 0 16 16">
+                                                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="ms-2">
+                                                <a th:href="@{/modal-eliminar}" class="text-decoration-none" >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 color-icono" viewBox="0 0 16 16">
+                                                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div> </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+--Prueba Equipo Back--
+<div th:if = "${totalPaginas >1}">
+    <div class = "row col-sm-10">
+        <div class="col-sm-2">
+            Total Rows:[[${totalItems}}]]
+</div>
+        <div class="col -sm-1">
+            <span th:each="i:${#numbers.sequence(1, totalPaginas)}}">
+                <a th: if="${paginaActual !=i}}" th: href="@´/page/¨ + ${i}}>[[${i}]]"></a>
+                <span th:unless="${paginaActual !=i}" > [[${i}]]</span> &nbsp; &nbsp;
+            </span>
+        </div>
+        <div class="col -sm-1">
+                <a th: if="${paginaActual<totalPaginas}}" th: href="@´/page/¨ + ${paginaActual}}">Next</a>
+                <span th:unless="${paginaActual<totalPaginasi}" > Next </span>
+            </span>
+        </div>
+        <div class="col -sm-1">
+            <a th: if="${paginaActual<totalPaginas}}" th: href="@´/page/¨ + ${totalPaginas}}">Last</a>
+            <span th:unless="${paginaActual<totalPaginasi}" > Last </span>
+            </span>
+        </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script></div>
+</body>
+</html>
